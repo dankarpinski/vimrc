@@ -11,6 +11,7 @@
 "
 " Sections:
 "    -> General
+"    -> Language Server
 "    -> VIM user interface
 "    -> Colors and Fonts
 "    -> Files and backups
@@ -71,7 +72,10 @@ function SetLSPShortcuts()
   nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 endfunction()
 
-autocmd FileType py call SetLSPShortcuts()
+augroup LSP
+  autocmd!
+  autocmd FileType python call SetLSPShortcuts()
+augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
